@@ -1,5 +1,5 @@
 import java.util.Random;
-import java.util.Scanner;
+
 
 public class Human {
     private String name; // Имя
@@ -62,7 +62,7 @@ public class Human {
     // Метод для определения обращения (мужское / женское)
     private String getGreeting() {
         // Определение пола по имени
-        String[] femaleNames = { "Анна", "Мария", "Ольга", "Екатерина", "Татьяна" };
+        String[] femaleNames = { "Яна", "Ксения", "Ольга", "Анастасия", "Татьяна", "Екатерина", "Алёна" };
         for (String femaleName : femaleNames) {
             if (name.equals(femaleName)) {
                 return "Привет, меня зовут " + name; // Женское имя
@@ -71,8 +71,7 @@ public class Human {
         return "Привет, меня зовут " + name; // Мужское имя
     }
 
-    // Метод Go (прогулка человека по городу. Не будет совершать при болезни или
-    // после смерти)
+    // Метод Go (прогулка человека по городу. Не будет совершать при болезни или после смерти)
     public void go() {
         if (isAlive) {
         if (hp   >= 40) {
@@ -100,57 +99,7 @@ public class Human {
     public boolean isAlive() {
         return isAlive;
     }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Human human = createNewHuman(); // Создание первого человека со случайным именем
-        int choice;
-
-        do {
-            System.out.println("\nВыберите действие:");
-            System.out.println("1. Говорить");
-            System.out.println("2. Идти");
-            System.out.println("3. Убить");
-            System.out.println("4. Проверить, жив ли");
-            System.out.println("5. Создать нового человека");
-            System.out.println("0. Выход");
-            choice = scanner.nextInt();
-            switch (choice) {
-                case 1:
-                    human.talk();
-                    break;
-                case 2:
-                    human.go();
-                    break;
-                case 3:
-                    human.kill();
-                    break;
-                case 4:
-                    System.out.println("Человек " + (human.isAlive() ? "жив." : "мертв."));
-                    break;
-                case 5:
-                    if (!human.isAlive()) {
-                        System.out.println("Создание нового человека...");
-                        human = createNewHuman(); // Создание нового человека со случайным именем.
-                    } else {
-                        System.out.println("Первый человек все еще жив. Убейте его, чтобы создать нового.");
-                    }
-                    break;
-                case 0:
-                    System.out.println("Выход из программы...");
-                    break;
-                default:
-                    System.out.println("Неверный выбор. Попробуйте снова.");
-            }
-        } while (choice != 0);
-
-        scanner.close();
-    }
-
-    // создание нового человека
-    private static Human createNewHuman() {
-        Random random = new Random();
-        String randomName = names[random.nextInt(names.length)];
-        return new Human(randomName);
-    }
 }
+
+    
+       
