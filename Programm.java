@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class Persona {
+public class Programm {
 
     public static void main(String[] args) {
         
