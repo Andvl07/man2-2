@@ -17,19 +17,19 @@ public class Human {
     // Конструктор
     public Human(String name) {
         this.name = name;
-        this.age = generateRandomAge(); // Случайный возраст от 15 до 50
-        this.hp = generateRandomHealth(); // Состояние здоровья от 10 до 100
+        this.age = generRandAge(); // Случайный возраст от 15 до 50
+        this.hp = generRandHealth(); // Состояние здоровья от 10 до 100
         this.isAlive = true; // По умолчанию считается, что человек жив
     }
 
     // Метод генерации случайного возраста от 15 до 50
-    private int generateRandomAge() {
+    private int generRandAge() {
         Random random = new Random();
         return random.nextInt(36) + 15; // Возраст от 15 до 50
     }
 
     // Метод генерации здоровья от 10 до 100
-    private int generateRandomHealth() {
+    private int generRandHealth() {
         Random random = new Random();
         return random.nextInt(91) + 10; // Здоровье от 10 до 100
     }
